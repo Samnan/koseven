@@ -16,7 +16,7 @@ Create the file `application/classes/Controller/Hello.php` in your application f
 	{
 		public function action_index()
 		{
-			echo 'hello, world!';
+			$this->response->body('hello, world!');
 		}
 	}
 
@@ -32,8 +32,8 @@ Lets see what's going on here:
 `public function action_index()`
 :	This defines the "index" action of our controller.  Kohana will attempt to call this action if the user hasn't specified an action. (See [Routes, URLs and Links](tutorials.urls))
 
-`echo 'hello, world!';`
-:	And this is the line which outputs the customary phrase!
+`$this->response->body('hello, world!');`
+:	And this is the line which outputs the customary phrase! `$this->response` is the object that represents the browser response for the current request, and we set its body to 'hello, world'. The same response object can be used to set various headers as desired in your application.
 
 Now if you open your browser and go to http://localhost/index.php/hello you should see something like:
 
